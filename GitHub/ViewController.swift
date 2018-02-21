@@ -27,7 +27,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = repositories[indexPath.row].name?.capitalized
+        cell.textLabel?.text = "\(repositories[indexPath.row].name ?? "name")"
+        cell.detailTextLabel?.text = " ★ = \(repositories[indexPath.row].stargazers_count ?? 0) ,   ⑂ = \(repositories[indexPath.row].forks_count ?? 0)"
         return cell
     }
     

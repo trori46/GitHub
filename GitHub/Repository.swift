@@ -12,7 +12,7 @@ import Foundation
 struct Repository: Decodable {
     let name: String?
     let description: String?
-    let url: String?
+    let html_url: String?
     let forks_count: Int?
     let tags_url: String?
     let stargazers_count: Int?
