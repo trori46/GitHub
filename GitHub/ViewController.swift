@@ -8,8 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var tableView: UITableView!
+class ViewController: UITableViewController {
+    var aToz = true
+    @IBOutlet weak var btn: UIButton!
+    @IBAction func azBtn(_ sender: UIButton) {
+        if aToz == true {
+            repositories.sort() {  ($0.name?.lowercased())! < ($1.name?.lowercased())! }
+            aToz = false
+            btn.setTitle("Z-A", for: .normal)
+            tableView.reloadData()
+        } else {
+            repositories.sort() {  ($0.name?.lowercased())! > ($1.name?.lowercased())! }
+            aToz = true
+            btn.setTitle("A-Z", for: .normal)
+            tableView.reloadData()
+        }
+    }
     var repositories = [Repository]()
     
     override func viewDidLoad() {
@@ -21,18 +35,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "myCell")
         cell.textLabel?.text = "\(repositories[indexPath.row].name ?? "name")"
         cell.detailTextLabel?.text = " ★ = \(repositories[indexPath.row].stargazers_count ?? 0) ,   ⑂ = \(repositories[indexPath.row].forks_count ?? 0)"
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetail", sender: self)
     }
     
