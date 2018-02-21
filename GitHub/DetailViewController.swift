@@ -30,6 +30,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let brandView = UIImageView()
+        brandView.image = #imageLiteral(resourceName: "git.png")
+        brandView.contentMode = .scaleAspectFit
+        navigationItem.titleView = brandView
         nameLbl.text = repository?.name
         descriptionsLbl.lineBreakMode = .byWordWrapping
         descriptionsLbl.numberOfLines = 0
@@ -44,3 +48,4 @@ class DetailViewController: UIViewController {
 
     
 }
+

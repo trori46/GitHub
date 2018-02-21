@@ -31,6 +31,10 @@ class ViewController: UITableViewController {
         downloadJSON {
             self.tableView.reloadData()
         }
+        let brandView = UIImageView()
+        brandView.image = #imageLiteral(resourceName: "git.png")
+        brandView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = brandView
         tableView.delegate = self
         tableView.dataSource = self
     }
