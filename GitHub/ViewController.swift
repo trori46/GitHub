@@ -10,17 +10,17 @@ import UIKit
 
 class ViewController: UITableViewController {
     var aToz = true
-    @IBOutlet weak var btn: UIButton!
-    @IBAction func azBtn(_ sender: UIButton) {
+    @IBOutlet weak var AZBtn: UIButton!
+    @IBAction func sortingBtn(_ sender: UIButton) {
         if aToz == true {
             repositories.sort() {  ($0.name?.lowercased())! < ($1.name?.lowercased())! }
             aToz = false
-            btn.setTitle("Z-A", for: .normal)
+            AZBtn.setTitle("Z-A", for: .normal)
             tableView.reloadData()
         } else {
             repositories.sort() {  ($0.name?.lowercased())! > ($1.name?.lowercased())! }
             aToz = true
-            btn.setTitle("A-Z", for: .normal)
+            AZBtn.setTitle("A-Z", for: .normal)
             tableView.reloadData()
         }
     }
@@ -40,7 +40,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "myCell")
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "myCell")
         cell.textLabel?.text = "\(repositories[indexPath.row].name ?? "name")"
         cell.detailTextLabel?.text = " ★ = \(repositories[indexPath.row].stargazers_count ?? 0) ,   ⑂ = \(repositories[indexPath.row].forks_count ?? 0)"
         return cell

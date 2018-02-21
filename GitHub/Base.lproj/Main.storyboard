@@ -151,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="eTa-wL-hJt" detailTextLabel="xdf-8h-GTQ" style="IBUITableViewCellStyleValue1" id="sHG-aw-wmT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="18" reuseIdentifier="myCell" textLabel="eTa-wL-hJt" detailTextLabel="xdf-8h-GTQ" style="IBUITableViewCellStyleValue1" id="sHG-aw-wmT">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sHG-aw-wmT" id="Zce-Yy-Huo">
@@ -189,13 +189,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="A-Z"/>
                                 <connections>
-                                    <action selector="azBtn:" destination="oNZ-4s-ARy" eventType="touchUpInside" id="Zey-qX-ClE"/>
+                                    <action selector="sortingBtn:" destination="oNZ-4s-ARy" eventType="touchUpInside" id="TYe-KH-Qgk"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="btn" destination="iJZ-Vp-Aqj" id="Le9-A3-Rd6"/>
+                        <outlet property="AZBtn" destination="iJZ-Vp-Aqj" id="Ha0-d9-dvZ"/>
                         <segue destination="2Fa-20-KDi" kind="show" identifier="showDetail" id="Pfx-y1-ye8"/>
                     </connections>
                 </tableViewController>
