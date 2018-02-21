@@ -34,7 +34,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="565-y5-kH5"/>
                     <connections>
-                        <segue destination="2Fa-20-KDi" kind="show" id="2Md-DM-JYw"/>
+                        <outlet property="tableView" destination="lb6-M8-qkM" id="Q62-IA-Ib0"/>
+                        <segue destination="2Fa-20-KDi" kind="show" identifier="showDetail" id="2Md-DM-JYw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -16,9 +16,17 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var startLbl: UILabel!
     @IBOutlet weak var authorLbl: UILabel!
     @IBOutlet weak var tagsLbl: UILabel!
+    var repository:Repository?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameLbl.text = repository?.name
+        descriptionsLbl.text = repository?.description
+        urlLbl.text = repository?.url
+        forksLbl.text = String(describing: repository?.forks_count)
+        startLbl.text = String(describing: repository?.stargazers_count)
+        
+        
 
     }
 

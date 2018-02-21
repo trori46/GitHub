@@ -14,6 +14,7 @@
 		72E79C43203D883000FA005C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72E79C41203D883000FA005C /* LaunchScreen.storyboard */; };
 		72E79C4E203D883100FA005C /* GitHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E79C4D203D883100FA005C /* GitHubTests.swift */; };
 		72E79C59203D89B300FA005C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E79C58203D89B300FA005C /* DetailViewController.swift */; };
+		72E79C5B203D9ADC00FA005C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E79C5A203D9ADC00FA005C /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		72E79C4D203D883100FA005C /* GitHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubTests.swift; sourceTree = "<group>"; };
 		72E79C4F203D883100FA005C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72E79C58203D89B300FA005C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		72E79C5A203D9ADC00FA005C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				72E79C41203D883000FA005C /* LaunchScreen.storyboard */,
 				72E79C44203D883000FA005C /* Info.plist */,
 				72E79C58203D89B300FA005C /* DetailViewController.swift */,
+				72E79C5A203D9ADC00FA005C /* Repository.swift */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				72E79C59203D89B300FA005C /* DetailViewController.swift in Sources */,
 				72E79C3B203D882F00FA005C /* ViewController.swift in Sources */,
 				72E79C39203D882F00FA005C /* AppDelegate.swift in Sources */,
+				72E79C5B203D9ADC00FA005C /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
