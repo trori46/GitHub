@@ -183,7 +183,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="FeI-00-Kma">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="A-Z" style="plain" id="cgM-eC-tKx">
+                        <barButtonItem key="leftBarButtonItem" title="A-Z" id="cgM-eC-tKx">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iJZ-Vp-Aqj">
                                 <rect key="frame" x="16" y="3" width="83" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -196,6 +196,15 @@
                                 </connections>
                             </button>
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="qg2-vg-xc1">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="6a4-AW-47f">
+                                <rect key="frame" x="337" y="11" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="infoBtn:" destination="oNZ-4s-ARy" eventType="touchUpInside" id="jdd-hS-mlb"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -210,7 +219,7 @@
         <!--Navigation Controller-->
         <scene sceneID="PhO-XE-FhX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnTap="YES" id="mjm-S9-ncR" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mjm-S9-ncR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
