@@ -54,6 +54,8 @@ class ViewController: UITableViewController {
         performSegue(withIdentifier: "showDetail", sender: self)
     }
     
+   
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailViewController {
             destination.repository = repositories[(tableView.indexPathForSelectedRow?.row)!]
@@ -80,6 +82,8 @@ class ViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     @IBAction func infoBtn(_ sender: UIButton) {
         let allertController = UIAlertController(title: "GitHub", message: "an App that accesses the Github API to retrieve all the repositories from the following organization https://github.com/cocoapods and shows a repository info for the selected repository.", preferredStyle: .alert)

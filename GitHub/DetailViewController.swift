@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var authorLbl: UILabel!
     @IBOutlet weak var tagsLbl: UILabel!
     var repository:Repository?
-    
+    var url: URL?
    
     
     override func viewDidLoad() {
@@ -37,15 +37,46 @@ class DetailViewController: UIViewController {
         nameLbl.text = repository?.name
         descriptionsLbl.lineBreakMode = .byWordWrapping
         descriptionsLbl.numberOfLines = 0
+        tagsLbl.lineBreakMode = .byWordWrapping
+        tagsLbl.numberOfLines = 0
         descriptionsLbl.text = repository?.description
         urlLbl.setTitle(repository?.html_url, for: .normal)
         forksLbl.text = String(describing: (repository?.forks_count)!)
         startLbl.text = String(describing: (repository?.stargazers_count)!)
-        
+        let tag_u = String((repository?.tags_url)!)
+        url = URL(string: tag_u)
+        var text = String()
+        downloadJSON {
+            
+            for i in self.tag {
+                if i.name != nil {
+                text += " #\(i.name!)"
+            }
+            }
+            self.tagsLbl.text = text
+        }
         
 
     }
 
+    var tag = [Tag]()
+    func downloadJSON(completed: @escaping () -> ()) {
+        if url != nil {
+        URLSession.shared.dataTask(with: url!) { ( data, response, error) in
+            if error == nil {
+                do {
+                    self.tag = try JSONDecoder().decode([Tag].self, from: data!)
+                    DispatchQueue.main.async {
+                        completed()
+                    }
+                } catch {
+                    print("Error JSON")
+                }
+            }
+            } .resume()
+    }
     
 }
 
+    
+}

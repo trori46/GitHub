@@ -14,9 +14,11 @@ struct Repository: Decodable {
     let description: String?
     let html_url: String?
     let forks_count: Int?
-    let tags_url: String?
     let stargazers_count: Int?
+    let tags_url: String?
 }
 
-
+struct Tag: Decodable {
+    let name: String?
+}
 
