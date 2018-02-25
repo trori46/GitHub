@@ -11,8 +11,9 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var descriptionsLbl: UILabel!
-    //@IBOutlet weak var urlLbl: UILabel!
     @IBOutlet weak var urlLbl: UIButton!
+   
+    
     @IBAction func urlTap(_ sender: Any) {
         if let website = repository?.html_url {
             let websiteURL = NSURL(string: "\(website)")! as URL
@@ -26,10 +27,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tagsLbl: UILabel!
     var repository:Repository?
     var url: URL?
-   
+    var tag = [Tag]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDetailView()
+    }
+
+    func setupDetailView() {
         let brandView = UIImageView()
         brandView.image = #imageLiteral(resourceName: "git.png")
         brandView.contentMode = .scaleAspectFit
@@ -46,21 +51,22 @@ class DetailViewController: UIViewController {
         let tag_u = String((repository?.tags_url)!)
         url = URL(string: tag_u)
         var text = String()
+        
         downloadJSON {
-            
             for i in self.tag {
                 if i.name != nil {
-                text += " #\(i.name!)"
+                    text += " #\(i.name!)"
+                }
             }
+            if text != "" {
+                self.tagsLbl.text = text
+            } else {
+                self.tagsLbl.text = "no tags" // if arent any tags
             }
-            self.tagsLbl.text = text
         }
-        
-
     }
-
-    var tag = [Tag]()
-    func downloadJSON(completed: @escaping () -> ()) {
+    
+    func downloadJSON(completed: @escaping () -> ()) { //fetch tags from url
         if url != nil {
         URLSession.shared.dataTask(with: url!) { ( data, response, error) in
             if error == nil {
@@ -75,8 +81,5 @@ class DetailViewController: UIViewController {
             }
             } .resume()
     }
-    
 }
-
-    
 }

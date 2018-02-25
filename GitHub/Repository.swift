@@ -15,7 +15,7 @@ struct Repository: Decodable {
     let html_url: String?
     let forks_count: Int?
     let stargazers_count: Int?
-    let tags_url: String?
+    let tags_url: String? //url fot fetching tags
 }
 
 struct Tag: Decodable {

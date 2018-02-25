@@ -9,9 +9,9 @@
 import UIKit
 
 class ViewController: UITableViewController {
-    var aToz = true
-    @IBOutlet weak var AZBtn: UIButton!
-    @IBAction func sortingBtn(_ sender: UIButton) {
+    var aToz = true //is tableView sorted from a to z, or conversely
+    @IBOutlet weak var AZBtn: UIButton! //button for sorting
+    @IBAction func sortingBtn(_ sender: UIButton) { //sorting tablecells
         if aToz == true {
             repositories.sort() {  ($0.name?.lowercased())! < ($1.name?.lowercased())! }
             aToz = false
@@ -24,21 +24,25 @@ class ViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    var repositories = [Repository]()
+    var repositories = [Repository]() //array with repos
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+    }
+
+    func setupTableView() {
         downloadJSON {
             self.tableView.reloadData()
         }
         let brandView = UIImageView()
-        brandView.image = #imageLiteral(resourceName: "git.png")
+        brandView.image = #imageLiteral(resourceName: "git.png") //setup logo
         brandView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = brandView
         tableView.delegate = self
         tableView.dataSource = self
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
     }
@@ -62,8 +66,8 @@ class ViewController: UITableViewController {
         }
     }
     
-    func downloadJSON(completed: @escaping () -> ()) {
-        let url = URL(string: "https://api.github.com/users/CocoaPods/repos")
+    func downloadJSON(completed: @escaping () -> ()) { //fetch repositories
+        let url = URL(string: "https://api.github.com/users/CocoaPods/repos")  //bath url
         URLSession.shared.dataTask(with: url!) { ( data, response, error) in
             if error == nil {
                 do {
@@ -85,7 +89,7 @@ class ViewController: UITableViewController {
     
     
     
-    @IBAction func infoBtn(_ sender: UIButton) {
+    @IBAction func infoBtn(_ sender: UIButton) { //info about app
         let allertController = UIAlertController(title: "GitHub", message: "an App that accesses the Github API to retrieve all the repositories from the following organization https://github.com/cocoapods and shows a repository info for the selected repository.", preferredStyle: .alert)
         allertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         
